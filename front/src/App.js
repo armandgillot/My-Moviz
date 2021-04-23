@@ -72,7 +72,17 @@ function App() {
   }
 
   var movieListPopover = moviesWishList.map((movie, i) => {
-    return (<ListGroupItem key={i}><img src={movie.image} width="25%" /><br />{movie.name}</ListGroupItem>)
+    return (<ListGroupItem style={{ textAlign: "center" }} key={i}>
+      <img style={{ filter: "drop-shadow(0 0 0.30rem black)" }} src={movie.image} width="50%" />
+      <br />
+      <span style={{ fontWeight: "bold", fontSize: "15px" }}>
+        {movie.name}
+      </span>
+      <br />
+      <Button style={{padding: "0px 10px", backgroundColor: "#FFC23C", color: "black", fontSize: "12px", fontWeight: "bold"}} onClick={() => handleClickDeleteMovie(movie.name)} type="button">
+        Delete
+                </Button>
+    </ListGroupItem>)
   })
 
   var movieList = moviesList.map((movie, i) => {
@@ -108,9 +118,8 @@ function App() {
           </NavItem>
           <NavItem>
             <NavLink>
-
               <Button id="Popover1" type="button">
-                {moviesWishList.length} films
+                {moviesWishList.length} movies
                 </Button>
               <Popover placement="bottom" isOpen={popoverOpen} target="Popover1" toggle={toggle}>
                 <PopoverHeader>WishList</PopoverHeader>
