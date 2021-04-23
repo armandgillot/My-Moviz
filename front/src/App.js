@@ -73,15 +73,15 @@ function App() {
 
   var movieListPopover = moviesWishList.map((movie, i) => {
     return (<ListGroupItem style={{ textAlign: "center" }} key={i}>
-      <img style={{ filter: "drop-shadow(0 0 0.30rem black)" }} src={movie.image} width="50%" />
+      <img style={{ filter: "drop-shadow(0 0 0.30rem black)", border: "solid 3px", borderRadius: "5px" }} src={movie.image} width="50%" />
       <br />
       <span style={{ fontWeight: "bold", fontSize: "15px" }}>
         {movie.name}
       </span>
       <br />
-      <Button style={{padding: "0px 10px", backgroundColor: "#FFC23C", color: "black", fontSize: "12px", fontWeight: "bold"}} onClick={() => handleClickDeleteMovie(movie.name)} type="button">
+      <Button style={{ padding: "0px 10px", backgroundColor: "#FFC23C", color: "black", fontSize: "12px", fontWeight: "bold" }} onClick={() => handleClickDeleteMovie(movie.name)} type="button">
         Delete
-                </Button>
+      </Button>
     </ListGroupItem>)
   })
 
@@ -114,14 +114,14 @@ function App() {
             <img src="./logo.png" width="30" height="30" className="d-inline-block align-top" alt="logo" />
           </span>
           <NavItem>
-            <NavLink style={{ color: 'white' }}>Last Releases</NavLink>
+            <NavLink className="titre" style={{ color: 'white' }}>Last Releases</NavLink>
           </NavItem>
           <NavItem>
             <NavLink>
               <Button id="Popover1" type="button">
                 {moviesWishList.length} movies
                 </Button>
-              <Popover placement="bottom" isOpen={popoverOpen} target="Popover1" toggle={toggle}>
+              <Popover style={{ filter: "drop-shadow(0 0 1rem black)"}} placement="bottom" isOpen={popoverOpen} target="Popover1" toggle={toggle}>
                 <PopoverHeader>WishList</PopoverHeader>
                 <ListGroup>
                   {movieListPopover}
